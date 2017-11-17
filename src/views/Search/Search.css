@@ -1,0 +1,41 @@
+/* search page */
+.search-books-bar {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 6px rgba(0,0,0,0.23);
+  display: flex;
+  left: 0;
+  position: fixed;
+  top: 68px;
+  width: 100%;
+  z-index: 5;
+}
+
+.search-books-input-wrapper {
+  background: #e9e;
+  flex: 1;
+}
+
+.search-books-bar input {
+  border: none;
+  font-size: 1.25em;
+  outline: none;
+  padding: 15px 10px;
+  width: 100%;
+}
+
+.close-search {
+  background: white;
+  background-image: url("../../images/icons/arrow-back.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  display: block;
+  font-size: 0;
+  height: 53px;
+  left: 15px;
+  top: 20px;
+  width: 50px;
+}
+
+.search-books-results {
+  padding: 80px 10px 20px;
+}

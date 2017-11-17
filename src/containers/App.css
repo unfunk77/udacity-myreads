@@ -1,0 +1,69 @@
+.root,
+body,
+html {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+}
+
+.app,
+body {
+  background: white;
+}
+
+/* Header */
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+.list-books-title {
+  background: #666;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.list-books-title h1 {
+  color: white;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Main */
+main {
+  padding-top: 68px;
+  z-index: 1;
+}
+
+/* books grid */
+.books-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.books-grid li {
+  padding: 10px 15px;
+  text-align: left;
+}
+
+/* Preloader */
+.preloader {
+  background-color: rgba(255,255,255,0.6);
+  background-image: url("../images/icons/loading.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60px;
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}

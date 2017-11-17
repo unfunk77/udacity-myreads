@@ -1,9 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import { Route } from 'react-router-dom'
-import Home from './views/Home/Home'
-import Search from './views/Search/Search'
-import * as BooksAPI from './BooksAPI'
+import Home from '../views/Home/Home'
+import Search from '../views/Search/Search'
+import * as BooksAPI from '../lib/BooksAPI'
 import './App.css'
 
 class App extends React.Component {
@@ -34,6 +34,7 @@ class App extends React.Component {
       term: "",
       books: [],
       results: [],
+      loading: false
     };
   }
 
@@ -42,6 +43,7 @@ class App extends React.Component {
   }
 
   getBooks = () => {
+    this.loading();
     BooksAPI.getAll().then((books)=>{
       this.setState({books});
       this.searchBooks(this.state.term);
@@ -51,6 +53,7 @@ class App extends React.Component {
   searchBooks = (term) => {
     let results = [];
     if(term){
+      this.loading();
       BooksAPI.search(term).then((response)=>{
         const books = this.state.books;
         if(response){
@@ -61,15 +64,16 @@ class App extends React.Component {
             return item
           })
         }
-        this.setState({results,term});
+        this.setState({results,term,loading: false});
       })
     } else {
-      this.setState({results,term});
+      this.setState({results,term,loading: false});
     }
 
   }
 
   changeShelf = (book) => {
+    this.loading();
     BooksAPI.update(book,book.shelf).then((response)=>{
       this.getBooks();
     })
@@ -77,6 +81,12 @@ class App extends React.Component {
 
   navigateTo = (link) => {
     this.props.history.push(link);
+  }
+
+  loading = () => {
+    if(!this.state.loading){
+      this.setState({loading: true});
+    }
   }
 
   HomeView = (props) => {
@@ -106,9 +116,19 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Route exact path="/" component={this.HomeView} />
-        <Route exact path="/search" component={this.SearchView}/>
-        <Route exact path="/search/:term" component={this.SearchView}/>
+        <header>
+          <div className="list-books-title">
+            <h1>MyReads</h1>
+          </div>
+        </header>
+        <main>
+          <Route exact path="/" component={this.HomeView} />
+          <Route exact path="/search" component={this.SearchView}/>
+          <Route exact path="/search/:term" component={this.SearchView}/>
+        </main>
+        {this.state.loading &&
+        <div className="preloader"></div>
+        }
       </div>
     )
   }

@@ -1,0 +1,25 @@
+/* main page */
+.list-books-content {
+  flex: 1;
+  padding: 0 0 80px;
+}
+
+.open-search {
+  bottom: 25px;
+  position: fixed;
+  right: 25px;
+}
+
+.open-search a {
+  background: #666;
+  background-image: url("../../images/icons/add.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  display: block;
+  font-size: 0;
+  height: 50px;
+  width: 50px;
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import Book from '../../components/Book/Book'
+import './Search.css'
 
 class Search extends React.Component {
   static defaultProps= {
