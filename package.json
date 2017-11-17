@@ -5,6 +5,8 @@
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
+    "prop-types": "^15.6.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "0.9.5"
   },
   "scripts": {
