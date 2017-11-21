@@ -59,7 +59,6 @@ class App extends React.Component {
         if(response){
           results = response.error ? [] : response;
           results.map((item,index)=>{
-            //adding shelf property if book ahs already been added to a shelf
             const book = books.filter((book)=>(book.id === item.id));
             results[index].shelf = book[0] ? book[0].shelf : "none";
             return item
