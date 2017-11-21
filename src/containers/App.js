@@ -65,10 +65,10 @@ class App extends React.Component {
             return item
           })
         }
-        this.setState({results,term,loading: false});
+        this.setState({results, term, loading: false});
       })
     } else {
-      this.setState({results,term,loading: false});
+      this.setState({results, term, loading: false});
     }
 
   }
@@ -82,7 +82,13 @@ class App extends React.Component {
           item.shelf = book.shelf;
         }
       })
-      this.setState({books,loading:false});
+      let results = this.state.results;
+      results.forEach(item => {
+        if(item.id===book.id){
+          item.shelf = book.shelf;
+        }
+      })
+      this.setState({books, results, loading:false});
     })
   }
 
