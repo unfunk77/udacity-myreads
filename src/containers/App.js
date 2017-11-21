@@ -59,7 +59,7 @@ class App extends React.Component {
         if(response){
           results = response.error ? [] : response;
           results.map((item,index)=>{
-            //adding shelf property if book ahs already been added to a shelf 
+            //adding shelf property if book ahs already been added to a shelf
             const book = books.filter((book)=>(book.id === item.id));
             results[index].shelf = book[0] ? book[0].shelf : "none";
             return item
@@ -76,7 +76,13 @@ class App extends React.Component {
   changeShelf = (book) => {
     this.loading();
     BooksAPI.update(book,book.shelf).then((response)=>{
-      this.getBooks();
+      let books = this.state.books;
+      books.forEach(item => {
+        if(item.id===book.id){
+          item.shelf = book.shelf;
+        }
+      })
+      this.setState({books,loading:false});
     })
   }
 

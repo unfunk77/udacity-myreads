@@ -42,6 +42,7 @@ class Home extends React.Component {
     )
   }
 
+
   renderShelves = () => {
     const target = this;
     const shelves = this.props.shelves
