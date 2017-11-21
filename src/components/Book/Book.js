@@ -43,13 +43,13 @@ class Book extends React.Component {
   }
 
   renderAuthors () {
-    let authors = this.props.authors.map((author,index) => {
+    let authors = this.props.authors.map((author,index) => (
       <span key={index}>{author}<br/></span>
-    })
+    ))
     if(authors.length){
       return authors;
     } else {
-      return "Unknown"
+      return "Unknown";
     }
   }
 
