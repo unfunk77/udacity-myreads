@@ -42,6 +42,12 @@ class App extends React.Component {
     this.getBooks();
   }
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.history.location.pathname==="/") {
+      this.getBooks();
+    }
+  }
+
   getBooks = () => {
     this.loading();
     BooksAPI.getAll().then((books)=>{

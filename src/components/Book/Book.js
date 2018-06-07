@@ -25,7 +25,7 @@ const Book = (props) => {
   }
 
   const renderAuthors = () => {
-    if(authors.length){
+    if(authors && authors.length){
       return (
         authors.map((author,index) => (<span key={index}>{author}<br/></span>))
       )
